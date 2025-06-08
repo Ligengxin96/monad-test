@@ -33,7 +33,7 @@ export default function PreMarkets() {
     if (response.ok) {
       const listData = await response.json();
       console.log("listData", listData);
-      const marketList = listData.data.list.map((market: any) => {
+      const marketList = listData.list.map((market: any) => {
         const startTime = dayjs(Number(market.startTime) * 1000).format(
           "YYYY-MM-DD HH:mm"
         );
@@ -76,9 +76,7 @@ export default function PreMarkets() {
           <TableColumn>Token</TableColumn>
           <TableColumn>Name</TableColumn>
           <TableColumn>Market Id</TableColumn>
-          <TableColumn>Last Price</TableColumn>
-          <TableColumn>Vol 24h</TableColumn>
-          <TableColumn>Total Vol</TableColumn>
+         
           <TableColumn>Start Time</TableColumn>
           <TableColumn>End Time</TableColumn>
         </TableHeader>
@@ -115,9 +113,7 @@ export default function PreMarkets() {
                   {market.symbol}-Market-{market.marketId}
                 </TableCell>
                 <TableCell>{market.marketId}</TableCell>
-                <TableCell>{market.lastPrice}</TableCell>
-                <TableCell>{market.vol24h}</TableCell>
-                <TableCell>{market.volTotal}</TableCell>
+               
                 <TableCell>{market.startTime}</TableCell>
                 <TableCell>{market.endTime}</TableCell>
               </TableRow>

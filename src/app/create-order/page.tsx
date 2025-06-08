@@ -254,7 +254,7 @@ export default function CreateOrder() {
     if (listResponse.ok) {
       const responseData = await listResponse.json();
       const endTokens: string[] = [];
-      const preTokenList = responseData.data.list.map((token: any) => {
+      const preTokenList = responseData.list.map((token: any) => {
         const marketInfo = preMarketsMap[token.symbol];
         const currentTime = new Date().getTime();
         const endTime = Number(token.endTime) * 1000;

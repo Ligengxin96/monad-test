@@ -44,7 +44,7 @@ export default function MyOrdersMarkets() {
     if (response.ok) {
       const listData = await response.json();
       console.log("listData", listData);
-      const marketList = listData.data.list.map((market: any) => {
+      const marketList = listData.list.map((market: any) => {
         const startTime = dayjs(Number(market.startTime) * 1000).format(
           "YYYY-MM-DD HH:mm"
         );
